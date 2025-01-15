@@ -23,7 +23,7 @@
       args
     (cond
       ((null args)
-       (run/i `("oof" "shell")))
+       (run/i `("oof" "sh")))
       (t (let* ((cwd (uiop:getcwd))
                 (path (uiop:ensure-directory-pathname
                        (uiop:merge-pathnames* "shell" (template-directory))))
@@ -31,7 +31,7 @@
                 (cmd (or command '("bash"))))
            (when (uiop:directory-exists-p directory)
              (uiop:chdir directory)
-             (run/i `("oof" "shell" "--run" ,(fmt "cd ~A; ~{'~A'~^ ~}" cwd cmd)))))))
+             (run/i `("oof" "sh" "--run" ,(fmt "cd ~A; ~{'~A'~^ ~}" cwd cmd)))))))
     (success)))
 
 (register-commands :scripts/shell)
