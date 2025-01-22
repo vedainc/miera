@@ -11,17 +11,18 @@
         #:optima.ppcre
         #:scripts/common)
   (:import-from #:marie
-                #:def- #:def
+                #:def-
+                #:def
                 #:home
                 #:fmt))
 
 (in-package #:scripts/dev)
 
-(def- template-directory ()
+(def- develop-directory ()
   "Return the template directory for the current system."
   (uiop:os-cond
    ((or (uiop:os-macosx-p) (uiop:os-unix-p))
-    (home "src/t/"))
+    (home "etc/dev/"))
    (t (home "Templates/"))))
 
 (defcommand dev (&rest args)
@@ -31,8 +32,7 @@
       ((null args)
        (run/i `("oof" "develop")))
       (t (let* ((cwd (uiop:getcwd))
-                (path (uiop:ensure-directory-pathname
-                       (uiop:merge-pathnames* "shell" (template-directory))))
+                (path (uiop:ensure-directory-pathname (develop-directory)))
                 (directory (uiop:merge-pathnames* base path))
                 (cmd (or command '("bash"))))
            (when (uiop:directory-exists-p directory)
