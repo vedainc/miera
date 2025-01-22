@@ -10,7 +10,7 @@ all: $(NAME)
 
 $(NAME):
 	@$(CL) --output $(NAME) --dump ! --lisp sbcl \
-	--quicklisp --dispatch-system $(NAME)/main --system $(NAME)
+	--quicklisp --dispatch-system $(NAME)/src/main --system $(NAME)
 
 install: $(NAME)
 	@ln -sf $(SCRIPT) $(BINARY)

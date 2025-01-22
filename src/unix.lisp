@@ -1,15 +1,15 @@
 ;;;; unix.lisp
 
-(uiop:define-package #:scripts/unix
+(uiop:define-package #:scripts/src/unix
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
         #:optima
         #:optima.ppcre
         #:marie
-        #:scripts/common))
+        #:scripts/src/common))
 
-(in-package #:scripts/unix)
+(in-package #:scripts/src/unix)
 
 (% md "mkdir -p")
 (% rm! "rm -rf")
@@ -32,4 +32,4 @@
   (run/i `(sudo "sh" "-c" ,(fmt "~{~A~^ ~}" args)))
   (success))
 
-(register-commands :scripts/unix)
+(register-commands :scripts/src/unix)

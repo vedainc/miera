@@ -1,12 +1,12 @@
 ;;;; touchring.lisp
 
-(uiop:define-package #:scripts/touchring
+(uiop:define-package #:scripts/src/touchring
   (:use #:cl
         #:cl-scripting
-        #:scripts/unix
+        #:scripts/src/unix
         #:marie))
 
-(in-package #:scripts/touchring)
+(in-package #:scripts/src/touchring)
 
 (defparameter *touchring-selector-key*
   "XF86Go"
@@ -91,4 +91,4 @@
   (apply #'touchring-actions (touchring-config-value (touchring-status)))
   (success))
 
-(register-commands :scripts/touchring)
+(register-commands :scripts/src/touchring)

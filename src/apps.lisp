@@ -1,15 +1,16 @@
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10; coding: utf-8-unix; external-format: (:utf-8 :eol-style :lf); -*-
 ;;;; apps.lisp
 
-(uiop:define-package #:scripts/apps
+(uiop:define-package #:scripts/src/apps
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
         #:optima
         #:optima.ppcre
         #:marie
-        #:scripts/common))
+        #:scripts/src/common))
 
-(in-package #:scripts/apps)
+(in-package #:scripts/src/apps)
 
 (defp +screenshots-dir+ (home ".screenshots"))
 
@@ -178,7 +179,7 @@
 
 (defcommand gu (&rest args)
   "Run guvcview with the default device."
-  (let ((device (scripts/webcam:webcam "default-device")))
+  (let ((device (scripts/src/webcam:webcam "default-device")))
     (run/i `("guvcview" "-d" ,device ,@args))))
 
 (defcommand p (&rest args)
@@ -205,14 +206,8 @@
   "Set the screen resolution to MODE."
   (run/i `("xrandr" "--output" "eDP-1" "--mode" ,mode)))
 
-(defcommand e (&rest args)
-  "Run emacsclient"
-  (if (neg args)
-      (run/i `("emacsclient" "-nw" ,(uiop:getcwd) "-a" "''"))
-      (run/i `("emacsclient" "-nw" ,@args "-a" "''"))))
-
 (defcommand sas (&rest args)
   "Switch audio source."
   (prin1 args))
 
-(register-commands :scripts/apps)
+(register-commands :scripts/src/apps)
