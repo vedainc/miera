@@ -21,23 +21,23 @@
 (def- develop-directory ()
   "Return the template directory for the current system."
   (uiop:os-cond
-   ((or (uiop:os-macosx-p) (uiop:os-unix-p))
+   ((or (uiop:os-macosx-p)
+        (uiop:os-unix-p))
     (home "etc/dev/"))
    (t (home "Templates/"))))
 
 (defcommand dev (&rest args)
-  (destructuring-bind (&optional base &rest command)
+  (destructuring-bind (&optional output &rest command)
       args
     (cond
       ((null args)
        (run/i `("oof" "develop")))
       (t (let* ((cwd (uiop:getcwd))
                 (path (uiop:ensure-directory-pathname (develop-directory)))
-                (directory (uiop:merge-pathnames* base path))
                 (cmd (or command '("bash"))))
-           (when (uiop:directory-exists-p directory)
-             (uiop:chdir directory)
-             (run/i `("oof" "develop" "." "--command" "sh" "-c" ,(fmt "cd ~A && ~{~A~^ ~}" cwd cmd)))))))
+           (when (uiop:directory-exists-p path)
+             (uiop:chdir path)
+             (run/i `("oof" "develop" ,(fmt ".#~A" output) "--command" "sh" "-c" ,(fmt "cd ~A && ~{~A~^ ~}" cwd cmd)))))))
     (success)))
 
 (register-commands :scripts/src/dev)
