@@ -1,21 +1,27 @@
-;;;; shell.lisp
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10; coding: utf-8-unix; external-format: (:utf-8 :eol-style :lf); -*-
+;;;; shell.lisp --- nix shell stuff
 
 (uiop:define-package #:scripts/shell
   (:use #:cl
+        #:uiop
         #:inferior-shell
         #:cl-scripting
+        #:cl-launch/dispatch
         #:optima
         #:optima.ppcre
-        #:marie
-        #:scripts/common))
+        #:scripts/common)
+  (:import-from #:marie
+                #:def- #:def
+                #:home
+                #:fmt))
 
 (in-package #:scripts/shell)
 
-(defun template-directory ()
+(def- template-directory ()
   "Return the template directory for the current system."
   (uiop:os-cond
    ((or (uiop:os-macosx-p) (uiop:os-unix-p))
-    (home "Developer/src/t/"))
+    (home "src/t/"))
    (t (home "Templates/"))))
 
 (defcommand shell (&rest args)
@@ -23,7 +29,7 @@
       args
     (cond
       ((null args)
-       (run/i `("oof" "sh")))
+       (run/i `("oof" "develop")))
       (t (let* ((cwd (uiop:getcwd))
                 (path (uiop:ensure-directory-pathname
                        (uiop:merge-pathnames* "shell" (template-directory))))
@@ -31,7 +37,7 @@
                 (cmd (or command '("bash"))))
            (when (uiop:directory-exists-p directory)
              (uiop:chdir directory)
-             (run/i `("oof" "sh" "--run" ,(fmt "cd ~A; ~{'~A'~^ ~}" cwd cmd)))))))
+             (run/i `("oof" "develop" "." "--command" "sh" "-c" ,(fmt "cd ~A && ~{~A~^ ~}" cwd cmd)))))))
     (success)))
 
 (register-commands :scripts/shell)
