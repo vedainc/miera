@@ -18,16 +18,16 @@
                  #:local-time
                  #:ironclad
                  #:inferior-shell
-                 #:scripts/common
-                 #:scripts/ext
-                 #:scripts/touchpad
-                 #:scripts/general
-                 #:scripts/webcam
-                 #:scripts/apps
-                 #:scripts/unix
-                 #:scripts/mksum
-                 #:scripts/touchring
-                 #:scripts/smallcaps
-                 #:scripts/dev
-                 #:scripts/main
-                 #:scripts/driver))
+                 #:scripts/src/common
+                 #:scripts/src/ext
+                 #:scripts/src/touchpad
+                 #:scripts/src/general
+                 #:scripts/src/webcam
+                 #:scripts/src/apps
+                 #:scripts/src/unix
+                 #:scripts/src/mksum
+                 #:scripts/src/touchring
+                 #:scripts/src/smallcaps
+                 #:scripts/src/dev
+                 #:scripts/src/main
+                 #:scripts/src/driver))

@@ -1,13 +1,13 @@
 ;;;; misc.lisp
 
-(uiop:define-package #:scripts/ext
+(uiop:define-package #:scripts/src/ext
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
         #:cl-launch/dispatch
         #:marie))
 
-(in-package #:scripts/ext)
+(in-package #:scripts/src/ext)
 
 (def create-symlinks (src)
   (let* ((directory (or (uiop:getenv "DEST") "~/bin"))
@@ -21,4 +21,4 @@
   (format t "~A commands: ~{~A~^ ~}~%" (get-name) (all-entry-names))
   (success))
 
-(register-commands :scripts/ext)
+(register-commands :scripts/src/ext)

@@ -1,12 +1,12 @@
 ;;;; mksum.lisp
 
-(uiop:define-package #:scripts/mksum
+(uiop:define-package #:scripts/src/mksum
   (:use #:cl
         #:cl-scripting
         #:net.didierverna.clon
         #:marie))
 
-(in-package #:scripts/mksum)
+(in-package #:scripts/src/mksum)
 
 (defvar *default-hash* :sha256 "Default hash function")
 
@@ -192,4 +192,4 @@
         ((list-flag-p) (print-exit (ironclad:list-all-digests)))
         (t (print-help))))
 
-(register-commands :scripts/mksum)
+(register-commands :scripts/src/mksum)
