@@ -18,4 +18,4 @@
                  #:nur/src/main))
 
 (provide "nur")
-(provide "SCRIPTS")
+(provide "NUR")

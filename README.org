@@ -22,7 +22,7 @@ sudo apt-get install -y sbcl cl-launch make
 #+begin_src sh
 sbcl --noinform --eval "(mapc #'ql:quickload '(:inferior-shell :local-time :ironclad :clon :cl-launch :fare-utils :cl-scripting))" --quit
 cd ~/common-lisp
-git clone https://git.valmiz.com/valmiz/marie.git
+git clone git@git.valmiz.com/valmiz/marie.git
 #+END_src
 * Install nur
 #+begin_src sh

@@ -14,16 +14,24 @@
                 #:def-
                 #:def
                 #:home
-                #:fmt))
+                #:fmt)
+  (:import-from #:oof
+                #:oof))
 
 (in-package #:nur/src/dev)
+
+(def- find-path (&rest paths)
+  "Return the first path from PATHS that exists."
+  (loop :for path :in paths
+        :when (uiop:directory-exists-p (uiop:resolve-symlinks* path))
+          :do (return path)))
 
 (def- develop-directory ()
   "Return the template directory for the current system."
   (uiop:os-cond
    ((or (uiop:os-macosx-p)
         (uiop:os-unix-p))
-    (home "etc/dev/"))
+    (find-path (home ".dev") (home "etc/dev")))
    (t (home "Templates/"))))
 
 (defcommand dev (&rest args)
@@ -31,13 +39,17 @@
       args
     (cond
       ((null args)
-       (run/i `("oof" "develop")))
+       (oof "develop"))
       (t (let* ((cwd (uiop:getcwd))
                 (path (uiop:ensure-directory-pathname (develop-directory)))
                 (cmd (or command '("bash"))))
            (when (uiop:directory-exists-p path)
              (uiop:chdir path)
-             (run/i `("oof" "develop" ,(fmt ".#~A" output) "--command" "sh" "-c" ,(fmt "cd ~A && ~{~A~^ ~}" cwd cmd)))))))
+             (oof "develop"
+                  (fmt ".#~A" output)
+                  "--command"
+                  "sh" "-c"
+                  (fmt "cd ~A && ~{~A~^ ~}" cwd cmd))))))
     (success)))
 
 (register-commands :nur/src/dev)
