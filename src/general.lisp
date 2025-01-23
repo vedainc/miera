@@ -1,15 +1,15 @@
 ;;;; general.lisp
 
-(uiop:define-package #:scripts/src/general
+(uiop:define-package #:nur/src/general
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
         #:optima
         #:optima.ppcre
-        #:scripts/src/common
+        #:nur/src/common
         #:marie))
 
-(in-package #:scripts/src/general)
+(in-package #:nur/src/general)
 
 (defvar *num-mode* "[31m")
 (defvar *colon-mode* "[34m")
@@ -107,7 +107,7 @@
         (xdev-args '("pointer" "set-button-map" "1" "2" "3" "5" "4")))
     (match hostname
       ((ppcre "la-vulpo")
-       (scripts/src/touchpad:disable)
+       (nur/src/touchpad:disable)
        (trackpoint "TPPS/2 IBM TrackPoint")
        (trackpoint "pointer:Lenovo ThinkPad Compact USB Keyboard with TrackPoint")
        (apply #'xdev (append '("Logitech USB Receiver") xdev-args)))
@@ -171,4 +171,4 @@
 (def pk! (&rest args)
   (apply-args-1 'pk args :options '("-9")))
 
-(register-commands :scripts/src/general)
+(register-commands :nur/src/general)

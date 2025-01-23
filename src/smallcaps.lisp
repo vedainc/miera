@@ -1,15 +1,15 @@
 ;;;; smallcaps.lisp
 
-(uiop:define-package #:scripts/src/smallcaps
+(uiop:define-package #:nur/src/smallcaps
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
         #:optima
         #:optima.ppcre
         #:marie
-        #:scripts/src/common))
+        #:nur/src/common))
 
-(in-package #:scripts/src/smallcaps)
+(in-package #:nur/src/smallcaps)
 
 (defvar *smallcaps-alist*
   '((#\A . "ᴀ")
@@ -54,4 +54,4 @@
     (loop :for char :across text :do (format t "~A" (fn char)))
     (success)))
 
-(register-commands :scripts/src/smallcaps)
+(register-commands :nur/src/smallcaps)
