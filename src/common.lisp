@@ -1,12 +1,12 @@
 ;;;; common.lisp
 
-(uiop:define-package #:scripts/src/common
+(uiop:define-package #:nur/src/common
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
         #:marie))
 
-(in-package #:scripts/src/common)
+(in-package #:nur/src/common)
 
 (def char-display-char (c)
   "Display character C to stdout."

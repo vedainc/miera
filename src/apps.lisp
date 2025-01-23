@@ -1,16 +1,16 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10; coding: utf-8-unix; external-format: (:utf-8 :eol-style :lf); -*-
 ;;;; apps.lisp
 
-(uiop:define-package #:scripts/src/apps
+(uiop:define-package #:nur/src/apps
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
         #:optima
         #:optima.ppcre
         #:marie
-        #:scripts/src/common))
+        #:nur/src/common))
 
-(in-package #:scripts/src/apps)
+(in-package #:nur/src/apps)
 
 (defp +screenshots-dir+ (home ".screenshots"))
 
@@ -179,7 +179,7 @@
 
 (defcommand gu (&rest args)
   "Run guvcview with the default device."
-  (let ((device (scripts/src/webcam:webcam "default-device")))
+  (let ((device (nur/src/webcam:webcam "default-device")))
     (run/i `("guvcview" "-d" ,device ,@args))))
 
 (defcommand p (&rest args)
@@ -210,4 +210,4 @@
   "Switch audio source."
   (prin1 args))
 
-(register-commands :scripts/src/apps)
+(register-commands :nur/src/apps)

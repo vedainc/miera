@@ -1,21 +1,21 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10; coding: utf-8-unix; external-format: (:utf-8 :eol-style :lf); -*-
 ;;;; driver.lisp --- symbol driver
 
-(uiop:define-package :scripts/src/driver
-  (:nicknames :scripts)
+(uiop:define-package :nur/src/driver
+  (:nicknames :nur)
   (:use :uiop/common-lisp)
-  (:use-reexport #:scripts/src/common
-                 #:scripts/src/ext
-                 #:scripts/src/touchpad
-                 #:scripts/src/general
-                 #:scripts/src/apps
-                 #:scripts/src/unix
-                 #:scripts/src/mksum
-                 #:scripts/src/webcam
-                 #:scripts/src/touchring
-                 #:scripts/src/smallcaps
-                 #:scripts/src/dev
-                 #:scripts/src/main))
+  (:use-reexport #:nur/src/common
+                 #:nur/src/ext
+                 #:nur/src/touchpad
+                 #:nur/src/general
+                 #:nur/src/apps
+                 #:nur/src/unix
+                 #:nur/src/mksum
+                 #:nur/src/webcam
+                 #:nur/src/touchring
+                 #:nur/src/smallcaps
+                 #:nur/src/dev
+                 #:nur/src/main))
 
-(provide "scripts")
+(provide "nur")
 (provide "SCRIPTS")

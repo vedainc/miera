@@ -1,9 +1,9 @@
 ;;;; main.lisp
 
-(uiop:define-package #:scripts/src/main
+(uiop:define-package #:nur/src/main
   (:use #:cl))
 
-(in-package #:scripts/src/main)
+(in-package #:nur/src/main)
 
 (defun main (argv)
   (declare (ignore argv))

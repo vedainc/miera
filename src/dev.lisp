@@ -1,7 +1,7 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10; coding: utf-8-unix; external-format: (:utf-8 :eol-style :lf); -*-
 ;;;; dev.lisp --- nix shell stuff
 
-(uiop:define-package #:scripts/src/dev
+(uiop:define-package #:nur/src/dev
   (:use #:cl
         #:uiop
         #:inferior-shell
@@ -9,14 +9,14 @@
         #:cl-launch/dispatch
         #:optima
         #:optima.ppcre
-        #:scripts/src/common)
+        #:nur/src/common)
   (:import-from #:marie
                 #:def-
                 #:def
                 #:home
                 #:fmt))
 
-(in-package #:scripts/src/dev)
+(in-package #:nur/src/dev)
 
 (def- develop-directory ()
   "Return the template directory for the current system."
@@ -40,4 +40,4 @@
              (run/i `("oof" "develop" ,(fmt ".#~A" output) "--command" "sh" "-c" ,(fmt "cd ~A && ~{~A~^ ~}" cwd cmd)))))))
     (success)))
 
-(register-commands :scripts/src/dev)
+(register-commands :nur/src/dev)
