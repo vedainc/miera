@@ -1,11 +1,15 @@
 #+title: nur
-* OVERVIEW
+* Overview
 This is a collection of scripts written in Common Lisp.
-* SYSTEM DEPENDENCIES
+* System dependencies
 - sbcl
 - cl-launch
 - make
-* LISP DEPENDENCIES
+* Install system dependencies
+#+begin_src sh
+sudo apt-get install -y sbcl cl-launch make
+#+end_src
+* Lisp dependencies
 - inferior-shell
 - local-time
 - ironclad
@@ -14,18 +18,13 @@ This is a collection of scripts written in Common Lisp.
 - fare-utils
 - cl-scripting
 - marie
-
-You may install them with:
-
-#+BEGIN_SRC sh
-$ sbcl --noinform --eval "(mapc #'ql:quickload '(:inferior-shell :local-time :ironclad :clon :cl-launch :fare-utils :cl-scripting))" --quit
-$ cd ~/common-lisp
-$ git clone https://git.valmiz.com/valmiz/marie.git
+* Install lisp dependencies
+#+begin_src sh
+sbcl --noinform --eval "(mapc #'ql:quickload '(:inferior-shell :local-time :ironclad :clon :cl-launch :fare-utils :cl-scripting))" --quit
+cd ~/common-lisp
+git clone https://git.valmiz.com/valmiz/marie.git
 #+END_src
-* BUILDING
-To install nur to =$HOME/bin=, run:
-
-#+BEGIN_SRC sh
-$ make install
-#+END_SRC
-
+* Install nur
+#+begin_src sh
+make install
+#+end_src

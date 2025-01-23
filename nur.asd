@@ -11,7 +11,6 @@
 (defsystem :nur
     :name "nur"
     :version "1.3.0"
-    :description "Common Lisp nur"
     :author "Rommel Martínez <rommel.martinez@valmiz.com>"
     :class :package-inferred-system
     :depends-on (#:cl-ppcre
