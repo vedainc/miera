@@ -31,7 +31,7 @@
   (uiop:os-cond
    ((or (uiop:os-macosx-p)
         (uiop:os-unix-p))
-    (find-path (home ".dev") (home "etc/dev")))
+    (find-path (home "etc/dev") (home ".dev")))
    (t (home "Templates/"))))
 
 (defcommand dev (&rest args)
@@ -41,12 +41,11 @@
       ((null args)
        (oof "develop"))
       (t (let* ((cwd (uiop:getcwd))
-                (path (uiop:ensure-directory-pathname (develop-directory)))
+                (directory (uiop:ensure-directory-pathname (develop-directory)))
                 (cmd (or command '("bash"))))
-           (when (uiop:directory-exists-p path)
-             (uiop:chdir path)
+           (when (uiop:directory-exists-p directory)
              (oof "develop"
-                  (fmt ".#~A" output)
+                  (fmt "~A.#~A" directory output)
                   "--command"
                   "sh" "-c"
                   (fmt "cd ~A && ~{~A~^ ~}" cwd cmd))))))

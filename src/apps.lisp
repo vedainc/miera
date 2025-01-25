@@ -12,7 +12,7 @@
 
 (in-package #:nur/src/apps)
 
-(defp +screenshots-dir+ (home ".screenshots"))
+(defp +screenshots-dir+ (home "Desktop"))
 
 (rc bt "bluetoothctl"
     em "emacs --daemon"
@@ -27,7 +27,6 @@
     zx "zsh -c")
 
 (rc av "ahoviewer"
-    ;; b "gqview"
     bs "inkview"
     ev "evince"
     fs "gtk2fontsel"
@@ -123,6 +122,7 @@
   (success))
 
 (defcommand screenshot (mode)
+  "Take a screenshot, of course."
   (let* ((dir (uiop:truenamize +screenshots-dir+))
          (file (fmt "~A.png" (local-time:format-timestring nil (local-time:now))))
          (dest (fmt "mv $f ~A" dir))
