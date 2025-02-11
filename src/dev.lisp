@@ -15,8 +15,8 @@
                 #:def
                 #:home
                 #:fmt)
-  (:import-from #:oof
-                #:oof))
+  (:import-from #:vix
+                #:vix))
 
 (in-package #:nur/src/dev)
 
@@ -39,16 +39,13 @@
       args
     (cond
       ((null args)
-       (oof "develop"))
+       (vix "develop"))
       (t (let* ((cwd (uiop:getcwd))
                 (directory (uiop:ensure-directory-pathname (develop-directory)))
                 (cmd (or command '("bash"))))
            (when (uiop:directory-exists-p directory)
-             (oof "develop"
-                  (fmt "~A.#~A" directory output)
-                  "--command"
-                  "sh" "-c"
-                  (fmt "cd ~A && ~{~A~^ ~}" cwd cmd))))))
+             (vix "develop" (fmt "~A.#~A" directory output) "--command"
+                  "sh" "-c" (fmt "cd ~A && ~{~A~^ ~}" cwd cmd))))))
     (success)))
 
 (register-commands :nur/src/dev)
