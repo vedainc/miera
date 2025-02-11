@@ -10,14 +10,14 @@
 
 (defsystem :nur
     :name "nur"
-    :version "1.4.0"
+    :version "1.4.1"
     :author "Rommel Martínez <rommel.martinez@valmiz.com>"
     :class :package-inferred-system
     :depends-on (#:cl-ppcre
                  #:local-time
                  #:ironclad
                  #:inferior-shell
-                 #:oof
+                 #:vix
                  #:nur/src/common
                  #:nur/src/ext
                  #:nur/src/touchpad
