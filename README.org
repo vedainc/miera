@@ -1,30 +1,20 @@
-#+title: nur
+#+title: ebzzry-scripts
 * Overview
-This is a collection of scripts written in Common Lisp.
-* System dependencies
-- sbcl
-- cl-launch
-- make
+This is my personal collection of scripts
 * Install system dependencies
 #+begin_src sh
-sudo apt-get install -y sbcl cl-launch make
+sudo apt install -y sbcl cl-launch make
 #+end_src
-* Lisp dependencies
-- inferior-shell
-- local-time
-- ironclad
-- clon
-- cl-launch
-- fare-utils
-- cl-scripting
-- marie
 * Install lisp dependencies
 #+begin_src sh
 sbcl --noinform --eval "(mapc #'ql:quickload '(:inferior-shell :local-time :ironclad :clon :cl-launch :fare-utils :cl-scripting))" --quit
 cd ~/common-lisp
-git clone git@git.valmiz.com/valmiz/marie.git
+git clone https://github.com/krei-systems/ebzzry-scripts
 #+END_src
-* Install nur
+* Install the scripts
 #+begin_src sh
 make install
 #+end_src
+
+marie
+erima

@@ -1,4 +1,4 @@
-NAME=nur
+NAME=ebzzry-scripts
 DEST=$(HOME)/bin
 BINARY=$(DEST)/$(NAME)
 SCRIPT=$(PWD)/$(NAME)

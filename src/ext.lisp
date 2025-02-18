@@ -1,14 +1,14 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; ext.lisp --- extras
 
-(uiop:define-package #:nur/src/ext
+(uiop:define-package #:ebzzry-scripts/src/ext
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
         #:cl-launch/dispatch
         #:marie))
 
-(in-package #:nur/src/ext)
+(in-package #:ebzzry-scripts/src/ext)
 
 (def create-symlinks (src)
   (let* ((directory (or (uiop:getenv "DEST") "~/bin"))
@@ -22,4 +22,4 @@
   (format t "~A commands: ~{~A~^ ~}~%" (get-name) (all-entry-names))
   (success))
 
-(register-commands :nur/src/ext)
+(register-commands :ebzzry-scripts/src/ext)

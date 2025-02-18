@@ -1,16 +1,16 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; unix.lisp --- some unix-related stuff, or are they really?
 
-(uiop:define-package #:nur/src/unix
+(uiop:define-package #:ebzzry-scripts/src/unix
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
         #:optima
         #:optima.ppcre
         #:marie
-        #:nur/src/common))
+        #:ebzzry-scripts/src/common))
 
-(in-package #:nur/src/unix)
+(in-package #:ebzzry-scripts/src/unix)
 
 (% md "mkdir -p")
 (% rm! "rm -rf")
@@ -33,4 +33,4 @@
   (run/i `(sudo "sh" "-c" ,(fmt "~{~A~^ ~}" args)))
   (success))
 
-(register-commands :nur/src/unix)
+(register-commands :ebzzry-scripts/src/unix)

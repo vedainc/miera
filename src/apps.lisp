@@ -1,16 +1,16 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; apps.lisp --- application launchers
 
-(uiop:define-package #:nur/src/apps
+(uiop:define-package #:ebzzry-scripts/src/apps
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
         #:optima
         #:optima.ppcre
         #:marie
-        #:nur/src/common))
+        #:ebzzry-scripts/src/common))
 
-(in-package #:nur/src/apps)
+(in-package #:ebzzry-scripts/src/apps)
 
 (defp +screenshots-dir+ (home "Desktop"))
 
@@ -179,7 +179,7 @@
 
 (defcommand gu (&rest args)
   "Run guvcview with the default device."
-  (let ((device (nur/src/webcam:webcam "default-device")))
+  (let ((device (ebzzry-scripts/src/webcam:webcam "default-device")))
     (run/i `("guvcview" "-d" ,device ,@args))))
 
 (defcommand p (&rest args)
@@ -210,4 +210,4 @@
   "Switch audio source."
   (prin1 args))
 
-(register-commands :nur/src/apps)
+(register-commands :ebzzry-scripts/src/apps)

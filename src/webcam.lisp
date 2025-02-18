@@ -1,14 +1,14 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; webcam.lisp --- webcam operations
 
-(uiop:define-package #:nur/src/webcam
+(uiop:define-package #:ebzzry-scripts/src/webcam
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
-        #:nur/src/unix
+        #:ebzzry-scripts/src/unix
         #:marie))
 
-(in-package #:nur/src/webcam)
+(in-package #:ebzzry-scripts/src/webcam)
 
 (defparameter +program+
   "v4l2-ctl"
@@ -158,8 +158,8 @@
 
 (def webcam (fn &rest args)
   "Apply matching FN to ARGS."
-  (let ((symbol (intern (string-upcase fn) (find-package :nur/src/webcam))))
+  (let ((symbol (intern (string-upcase fn) (find-package :ebzzry-scripts/src/webcam))))
     (when (fboundp symbol)
       (apply symbol args))))
 
-(register-commands :nur/src/webcam)
+(register-commands :ebzzry-scripts/src/webcam)

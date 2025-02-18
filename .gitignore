@@ -1,8 +1,4 @@
 *.fasl
-
-# Created by https://www.gitignore.io/api/commonlisp
-
-### CommonLisp ###
 *.FASL
 *.fasl
 *.lisp-temp
@@ -20,9 +16,5 @@
 *.sx32fsl
 *.wx64fsl
 *.wx32fsl
-
-# End of https://www.gitignore.io/api/commonlisp
-
 *~
-
-/nur
+/ebzzry-scripts

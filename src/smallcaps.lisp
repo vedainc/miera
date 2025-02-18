@@ -1,16 +1,16 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; smallcaps.lisp --- return smallcaps version of text
 
-(uiop:define-package #:nur/src/smallcaps
+(uiop:define-package #:ebzzry-scripts/src/smallcaps
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
         #:optima
         #:optima.ppcre
         #:marie
-        #:nur/src/common))
+        #:ebzzry-scripts/src/common))
 
-(in-package #:nur/src/smallcaps)
+(in-package #:ebzzry-scripts/src/smallcaps)
 
 (defvar *smallcaps-alist*
   '((#\A . "ᴀ")
@@ -55,4 +55,4 @@
     (loop :for char :across text :do (format t "~A" (fn char)))
     (success)))
 
-(register-commands :nur/src/smallcaps)
+(register-commands :ebzzry-scripts/src/smallcaps)
