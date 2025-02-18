@@ -1,7 +1,5 @@
-;;;; -*- mode: lisp; syntax: common-lisp; base: 10; coding: utf-8-unix; external-format: (:utf-8 :eol-style :lf); -*-
-;;; nur.asd --- main asdf file
-
-#-ASDF3.1 (error "ASDF 3.1 or bust!")
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
+;;;; nur.asd --- main asdf file
 
 (uiop:define-package :nur-system
   (:use #:cl #:asdf))
@@ -11,13 +9,12 @@
 (defsystem :nur
     :name "nur"
     :version "1.4.1"
-    :author "Rommel Martínez <rommel.martinez@valmiz.com>"
+    :author "Rommel Martínez <ebzzry@icloud.com>"
     :class :package-inferred-system
     :depends-on (#:cl-ppcre
                  #:local-time
                  #:ironclad
                  #:inferior-shell
-                 #:vix
                  #:nur/src/common
                  #:nur/src/ext
                  #:nur/src/touchpad
@@ -28,6 +25,5 @@
                  #:nur/src/mksum
                  #:nur/src/touchring
                  #:nur/src/smallcaps
-                 #:nur/src/dev
                  #:nur/src/main
                  #:nur/src/driver))

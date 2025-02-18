@@ -1,4 +1,5 @@
-;;;; general.lisp
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
+;;;; general.lisp --- uncategorized stuff
 
 (uiop:define-package #:nur/src/general
   (:use #:cl

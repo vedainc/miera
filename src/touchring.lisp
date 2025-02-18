@@ -1,4 +1,5 @@
-;;;; touchring.lisp
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
+;;;; touchring.lisp --- wacom touchring operations
 
 (uiop:define-package #:nur/src/touchring
   (:use #:cl

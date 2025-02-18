@@ -1,4 +1,5 @@
-;;;; mksum.lisp
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
+;;;; mksum.lisp --- generate checksum of files and directories
 
 (uiop:define-package #:nur/src/mksum
   (:use #:cl
