@@ -1,10 +1,10 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
-;;;; main.lisp
+;;;; main.lisp --- main entry point
 
-(uiop:define-package #:nur/src/main
+(uiop:define-package #:ebzzry-scripts/src/main
   (:use #:cl))
 
-(in-package #:nur/src/main)
+(in-package #:ebzzry-scripts/src/main)
 
 (defun main (argv)
   (declare (ignore argv))

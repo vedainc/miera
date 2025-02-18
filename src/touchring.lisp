@@ -1,13 +1,13 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; touchring.lisp --- wacom touchring operations
 
-(uiop:define-package #:nur/src/touchring
+(uiop:define-package #:ebzzry-scripts/src/touchring
   (:use #:cl
         #:cl-scripting
-        #:nur/src/unix
+        #:ebzzry-scripts/src/unix
         #:marie))
 
-(in-package #:nur/src/touchring)
+(in-package #:ebzzry-scripts/src/touchring)
 
 (defparameter *touchring-selector-key*
   "XF86Go"
@@ -92,4 +92,4 @@
   (apply #'touchring-actions (touchring-config-value (touchring-status)))
   (success))
 
-(register-commands :nur/src/touchring)
+(register-commands :ebzzry-scripts/src/touchring)

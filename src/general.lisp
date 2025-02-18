@@ -1,16 +1,16 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; general.lisp --- uncategorized stuff
 
-(uiop:define-package #:nur/src/general
+(uiop:define-package #:ebzzry-scripts/src/general
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
         #:optima
         #:optima.ppcre
-        #:nur/src/common
+        #:ebzzry-scripts/src/common
         #:marie))
 
-(in-package #:nur/src/general)
+(in-package #:ebzzry-scripts/src/general)
 
 (defvar *num-mode* "[31m")
 (defvar *colon-mode* "[34m")
@@ -108,7 +108,7 @@
         (xdev-args '("pointer" "set-button-map" "1" "2" "3" "5" "4")))
     (match hostname
       ((ppcre "la-vulpo")
-       (nur/src/touchpad:disable)
+       (ebzzry-scripts/src/touchpad:disable)
        (trackpoint "TPPS/2 IBM TrackPoint")
        (trackpoint "pointer:Lenovo ThinkPad Compact USB Keyboard with TrackPoint")
        (apply #'xdev (append '("Logitech USB Receiver") xdev-args)))
@@ -172,4 +172,4 @@
 (def pk! (&rest args)
   (apply-args-1 'pk args :options '("-9")))
 
-(register-commands :nur/src/general)
+(register-commands :ebzzry-scripts/src/general)
