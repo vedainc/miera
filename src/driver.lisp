@@ -1,4 +1,4 @@
-;;;; -*- mode: lisp; syntax: common-lisp; base: 10; coding: utf-8-unix; external-format: (:utf-8 :eol-style :lf); -*-
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; driver.lisp --- symbol driver
 
 (uiop:define-package :nur/src/driver
@@ -14,7 +14,6 @@
                  #:nur/src/webcam
                  #:nur/src/touchring
                  #:nur/src/smallcaps
-                 #:nur/src/dev
                  #:nur/src/main))
 
 (provide "nur")

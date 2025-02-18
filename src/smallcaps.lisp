@@ -1,4 +1,5 @@
-;;;; smallcaps.lisp
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
+;;;; smallcaps.lisp --- return smallcaps version of text
 
 (uiop:define-package #:nur/src/smallcaps
   (:use #:cl

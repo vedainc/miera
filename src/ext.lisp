@@ -1,4 +1,5 @@
-;;;; misc.lisp
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
+;;;; ext.lisp --- extras
 
 (uiop:define-package #:nur/src/ext
   (:use #:cl

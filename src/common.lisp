@@ -1,4 +1,5 @@
-;;;; common.lisp
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
+;;;; common.lisp --- common utilities
 
 (uiop:define-package #:nur/src/common
   (:use #:cl
@@ -108,7 +109,7 @@
 
 (def run-with-nix-user (profile binary args)
   "Run binary under a separate profile."
-  (let ((bin (home (fmt ".vix/profiles/~A/bin" profile))))
+  (let ((bin (home (fmt ".nix/profiles/~A/bin" profile))))
     (setf (uiop:getenv "PATH") (unix-namestring bin))
     (run/i `(,binary ,@args))
     (success)))

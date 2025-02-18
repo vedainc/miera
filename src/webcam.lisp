@@ -1,4 +1,5 @@
-;;;; webcam.lisp
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
+;;;; webcam.lisp --- webcam operations
 
 (uiop:define-package #:nur/src/webcam
   (:use #:cl

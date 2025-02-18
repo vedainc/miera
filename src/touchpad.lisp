@@ -1,11 +1,5 @@
-":" ; exec cl-launch -Q -sm nur/src/touchpad "$0" "$@"
-;; -*- lisp -*-
-;; Based on https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Software_toggle
-;; Use the UI preferences to add a keyboard shortcut that invokes this script.
-;; To avoid the slow startup time of lisp as a script, better dump an image with:
-;;   cl-launch -o ~/bin/x64/touchpad -d ! -l clisp \
-;;     -s optima.ppcre -s inferior-shell -E touchpad::main -L touchpad.lisp
-;; Or use make-multi.sh to create a multi-call binary that includes touchpad support.
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
+;;;; touchpad.lisp --- touchpad stuff
 
 (uiop:define-package #:nur/src/touchpad
   (:use #:cl
@@ -48,8 +42,8 @@
     ((null argv) (toggle))
     ((eql (first-char (first argv)) #\() (eval (first argv)))
     (t (if-let (fun (package-function :nur/src/touchpad (standard-case-symbol-name (first argv))))
-         (apply 'run-command fun (rest argv))
-         (progn
-           (format *error-output* "Bad touchpad command: ~A~%" (first argv))
-           (help *error-output*)
-           (quit 2))))))
+               (apply 'run-command fun (rest argv))
+               (progn
+                 (format *error-output* "Bad touchpad command: ~A~%" (first argv))
+                 (help *error-output*)
+                 (quit 2))))))

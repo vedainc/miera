@@ -1,3 +1,4 @@
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; main.lisp
 
 (uiop:define-package #:nur/src/main

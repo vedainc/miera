@@ -1,4 +1,5 @@
-;;;; unix.lisp
+;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
+;;;; unix.lisp --- some unix-related stuff, or are they really?
 
 (uiop:define-package #:nur/src/unix
   (:use #:cl
