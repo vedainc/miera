@@ -1,20 +1,20 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; driver.lisp --- symbol driver
 
-(uiop:define-package :ebzzry-scripts/src/driver
-  (:nicknames :ebzzry-scripts)
+(uiop:define-package :miera/src/driver
+  (:nicknames :miera)
   (:use :uiop/common-lisp)
-  (:use-reexport #:ebzzry-scripts/src/common
-                 #:ebzzry-scripts/src/ext
-                 #:ebzzry-scripts/src/touchpad
-                 #:ebzzry-scripts/src/general
-                 #:ebzzry-scripts/src/apps
-                 #:ebzzry-scripts/src/unix
-                 #:ebzzry-scripts/src/mksum
-                 #:ebzzry-scripts/src/webcam
-                 #:ebzzry-scripts/src/touchring
-                 #:ebzzry-scripts/src/smallcaps
-                 #:ebzzry-scripts/src/main))
+  (:use-reexport #:miera/src/common
+                 #:miera/src/ext
+                 #:miera/src/touchpad
+                 #:miera/src/general
+                 #:miera/src/apps
+                 #:miera/src/unix
+                 #:miera/src/mksum
+                 #:miera/src/webcam
+                 #:miera/src/touchring
+                 #:miera/src/smallcaps
+                 #:miera/src/main))
 
-(provide "ebzzry-scripts")
-(provide "EBZZRY-SCRIPTS")
+(provide "miera")
+(provide "MIERA")

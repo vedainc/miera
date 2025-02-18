@@ -1,7 +1,7 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; touchpad.lisp --- touchpad stuff
 
-(uiop:define-package #:ebzzry-scripts/src/touchpad
+(uiop:define-package #:miera/src/touchpad
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
@@ -9,7 +9,7 @@
         #:optima.ppcre
         #:marie))
 
-(in-package #:ebzzry-scripts/src/touchpad)
+(in-package #:miera/src/touchpad)
 
 (def get-id ()
   (dolist (line (run/lines '(xinput list)))
@@ -41,7 +41,7 @@
   (cond
     ((null argv) (toggle))
     ((eql (first-char (first argv)) #\() (eval (first argv)))
-    (t (if-let (fun (package-function :ebzzry-scripts/src/touchpad (standard-case-symbol-name (first argv))))
+    (t (if-let (fun (package-function :miera/src/touchpad (standard-case-symbol-name (first argv))))
                (apply 'run-command fun (rest argv))
                (progn
                  (format *error-output* "Bad touchpad command: ~A~%" (first argv))

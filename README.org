@@ -1,4 +1,4 @@
-#+title: ebzzry-scripts
+#+title: miera
 * Overview
 This is my personal collection of scripts
 * Install system dependencies
@@ -9,12 +9,9 @@ sudo apt install -y sbcl cl-launch make
 #+begin_src sh
 sbcl --noinform --eval "(mapc #'ql:quickload '(:inferior-shell :local-time :ironclad :clon :cl-launch :fare-utils :cl-scripting))" --quit
 cd ~/common-lisp
-git clone https://github.com/krei-systems/ebzzry-scripts
+git clone https://github.com/krei-systems/miera
 #+END_src
 * Install the scripts
 #+begin_src sh
 make install
 #+end_src
-
-marie
-erima

@@ -1,13 +1,13 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; mksum.lisp --- generate checksum of files and directories
 
-(uiop:define-package #:ebzzry-scripts/src/mksum
+(uiop:define-package #:miera/src/mksum
   (:use #:cl
         #:cl-scripting
         #:net.didierverna.clon
         #:marie))
 
-(in-package #:ebzzry-scripts/src/mksum)
+(in-package #:miera/src/mksum)
 
 (defvar *default-hash* :sha256 "Default hash function")
 
@@ -193,4 +193,4 @@
         ((list-flag-p) (print-exit (ironclad:list-all-digests)))
         (t (print-help))))
 
-(register-commands :ebzzry-scripts/src/mksum)
+(register-commands :miera/src/mksum)
