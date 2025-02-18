@@ -1,4 +1,4 @@
-NAME=ebzzry-scripts
+NAME=miera
 DEST=$(HOME)/bin
 BINARY=$(DEST)/$(NAME)
 SCRIPT=$(PWD)/$(NAME)

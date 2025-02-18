@@ -1,13 +1,13 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; common.lisp --- common utilities
 
-(uiop:define-package #:ebzzry-scripts/src/common
+(uiop:define-package #:miera/src/common
   (:use #:cl
         #:inferior-shell
         #:cl-scripting
         #:marie))
 
-(in-package #:ebzzry-scripts/src/common)
+(in-package #:miera/src/common)
 
 (def char-display-char (c)
   "Display character C to stdout."
