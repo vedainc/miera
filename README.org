@@ -6,29 +6,9 @@ Miera is a collection of [[https://en.wikipedia.org/wiki/Lisp][Lisp]] CLI script
 
 It includes packages for running shell commands using [[https://github.com/fare/inferior-shell][inferior-shell]], automate the instructions using [[https://github.com/fare/cl-scripting][cl-scripting]], managing keymaps, creating symlinks, handling application launchers, configuring devices like keyboards and touchpads, and interacting with the system environment (such as setting locales, configuring backlight, or managing Bluetooth devices).
 
-* Install System Dependencies
+* Install system dependencies
 
 Before installing Miera, you need to install the required system dependencies. These dependencies vary based on the Linux distribution you're using.
-
-*** Ubuntu/Debian
-   #+BEGIN_SRC sh
-     sudo apt install -y sbcl cl-launch make
-   #+END_SRC
-
-*** Fedora
-   #+BEGIN_SRC sh
-     sudo dnf install -y sbcl cl-launch make
-   #+END_SRC
-
-*** CentOS 8+/Fedora/RHEL
-   #+BEGIN_SRC sh
-     sudo dnf install -y sbcl cl-launch make
-   #+END_SRC
-
-*** Arch Linux
-   #+BEGIN_SRC sh
-     sudo pacman -S sbcl cl-launch make
-   #+END_SRC
 
 *** NixOS
    #+BEGIN_SRC sh
@@ -43,7 +23,22 @@ Before installing Miera, you need to install the required system dependencies. T
      nix profile install nixpkgs#gnumake
    #+END_SRC
 
-* Install Lisp Dependencies
+*** Ubuntu/Debian
+   #+BEGIN_SRC sh
+     sudo apt install -y sbcl cl-launch make
+   #+END_SRC
+
+*** CentOS 8+/Fedora/RHEL
+   #+BEGIN_SRC sh
+     sudo dnf install -y sbcl cl-launch make
+   #+END_SRC
+
+*** Arch Linux
+   #+BEGIN_SRC sh
+     sudo pacman -S sbcl cl-launch make
+   #+END_SRC
+
+* Install lisp dependencies
 
 After installing the system dependencies, you'll need to install the necessary Lisp dependencies using =quicklisp=. This can be done as follows:
 
@@ -58,7 +53,7 @@ Next, clone the repository containing Miera:
      git clone https://github.com/krei-systems/miera
    #+END_SRC
 
-* Install Miera Scripts
+* Install miera scripts
 
 Once you've cloned the repository, you can install the Miera scripts by running:
    #+BEGIN_SRC sh
