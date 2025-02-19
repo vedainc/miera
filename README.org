@@ -45,7 +45,7 @@ Before installing Miera, you need to install the required system dependencies. T
 
 * Install Lisp Dependencies
 
-After installing the system dependencies, you'll need to install the necessary Lisp dependencies using `quicklisp`. This can be done as follows:
+After installing the system dependencies, you'll need to install the necessary Lisp dependencies using =quicklisp=. This can be done as follows:
 
    #+BEGIN_SRC sh
      sbcl --noinform --eval "(mapc #'ql:quickload '(:inferior-shell :local-time :ironclad :clon :cl-launch :fare-utils :cl-scripting))" --quit
