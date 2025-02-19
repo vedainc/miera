@@ -11,11 +11,12 @@ It includes packages for running shell commands using [[https://github.com/fare/
 Before installing Miera, you need to install the required system dependencies. These dependencies vary based on the Linux distribution you're using.
 
 *** NixOS
-   #+BEGIN_SRC sh
-   # With flakes:
+With flakes:
+#+BEGIN_SRC sh
    nix profile install nixpkgs#sbcl nixpkgs#cl-launch nixpkgs#gnumake
-
-   # Without flakes:
+#+end_Src
+Without flakes:
+#+begin_Src
    nix-env -iA nixpkgs.sbcl nixpkgs.cl-launch nixpkgs.gnumake
   #+END_SRC
 
