@@ -10,13 +10,6 @@ It includes packages for running shell commands, managing keymaps, creating syml
 
 Before installing Miera, you need to install the required system dependencies. These dependencies vary based on the Linux distribution you're using.
 
-** General Dependencies (Linux-based systems):
-   #+BEGIN_SRC sh
-     sudo apt install -y sbcl cl-launch make
-   #+END_SRC
-
-** Fedora, CentOS8+/Fedora/RHEL, Arch, Ubuntu/Debian Specific Setup:
-
 *** Ubuntu/Debian
    #+BEGIN_SRC sh
      sudo apt install -y sbcl cl-launch make
