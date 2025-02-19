@@ -2,9 +2,9 @@
 
 * Overview
 
-Miera is a collection of Lisp CLI scripts designed for various system automation and utility tasks. The scripts are built using Common Lisp and are designed to work on Unix-like operating systems. It contain a variety of utility functions, commands, and configurations for managing system and application settings, as well as device management on Linux or Unix-like systems.
+Miera is a collection of [[https://en.wikipedia.org/wiki/Lisp][Lisp]] CLI scripts designed for various system automation and utility tasks. The scripts are built using Common Lisp and are designed to work on Unix-like operating systems. It contains a variety of utility functions, commands, and configurations for managing system and application settings, as well as device management on Linux or Unix-like systems.
 
-It includes packages for running shell commands, managing keymaps, creating symlinks, handling application launchers, configuring devices like keyboards and touchpads, and interacting with the system environment (such as setting locales, configuring backlight, or managing Bluetooth devices).
+It includes packages for running shell commands using [[https://github.com/fare/inferior-shell][inferior-shell]], automate the instructions using [[https://github.com/fare/cl-scripting][cl-scripting]], managing keymaps, creating symlinks, handling application launchers, configuring devices like keyboards and touchpads, and interacting with the system environment (such as setting locales, configuring backlight, or managing Bluetooth devices).
 
 * Install System Dependencies
 
