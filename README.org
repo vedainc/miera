@@ -1,17 +1,74 @@
-#+title: miera
+#+TITLE: Miera
+
 * Overview
-This is my personal collection of scripts
-* Install system dependencies
-#+begin_src sh
-sudo apt install -y sbcl cl-launch make
-#+end_src
-* Install lisp dependencies
-#+begin_src sh
-sbcl --noinform --eval "(mapc #'ql:quickload '(:inferior-shell :local-time :ironclad :clon :cl-launch :fare-utils :cl-scripting))" --quit
-cd ~/common-lisp
-git clone https://github.com/krei-systems/miera
-#+END_src
-* Install the scripts
-#+begin_src sh
-make install
-#+end_src
+
+Miera is a collection of Lisp CLI scripts designed for various system automation and utility tasks. The scripts are built using Common Lisp and are designed to work on Unix-like operating systems. It contain a variety of utility functions, commands, and configurations for managing system and application settings, as well as device management on Linux or Unix-like systems.
+
+It includes packages for running shell commands, managing keymaps, creating symlinks, handling application launchers, configuring devices like keyboards and touchpads, and interacting with the system environment (such as setting locales, configuring backlight, or managing Bluetooth devices).
+
+* Install System Dependencies
+
+Before installing Miera, you need to install the required system dependencies. These dependencies vary based on the Linux distribution you're using.
+
+** General Dependencies (Linux-based systems):
+   #+BEGIN_SRC sh
+     sudo apt install -y sbcl cl-launch make
+   #+END_SRC
+
+** Fedora, CentOS8+/Fedora/RHEL, Arch, Ubuntu/Debian Specific Setup:
+
+*** Ubuntu/Debian
+   #+BEGIN_SRC sh
+     sudo apt install -y sbcl cl-launch make
+   #+END_SRC
+
+*** Fedora
+   #+BEGIN_SRC sh
+     sudo dnf install -y sbcl cl-launch make
+   #+END_SRC
+
+*** CentOS 8+/Fedora/RHEL
+   #+BEGIN_SRC sh
+     sudo dnf install -y sbcl cl-launch make
+   #+END_SRC
+
+*** Arch Linux
+   #+BEGIN_SRC sh
+     sudo pacman -S sbcl cl-launch make
+   #+END_SRC
+
+*** NixOS
+   #+BEGIN_SRC sh
+     # Without flakes:
+     nix-env -iA nixpkgs.sbcl
+     nix-env -iA nixpkgs.cl-launch
+     nix-env -iA nixpkgs.gnumake
+
+     # With flakes:
+     nix profile install nixpkgs#sbcl
+     nix profile install nixpkgs#cl-launch
+     nix profile install nixpkgs#gnumake
+   #+END_SRC
+
+* Install Lisp Dependencies
+
+After installing the system dependencies, you'll need to install the necessary Lisp dependencies using `quicklisp`. This can be done as follows:
+
+   #+BEGIN_SRC sh
+     sbcl --noinform --eval "(mapc #'ql:quickload '(:inferior-shell :local-time :ironclad :clon :cl-launch :fare-utils :cl-scripting))" --quit
+   #+END_SRC
+
+Next, clone the repository containing Miera:
+
+   #+BEGIN_SRC sh
+     cd ~/common-lisp
+     git clone https://github.com/krei-systems/miera
+   #+END_SRC
+
+* Install Miera Scripts
+
+Once you've cloned the repository, you can install the Miera scripts by running:
+   #+BEGIN_SRC sh
+     cd miera
+     make install
+   #+END_SRC
