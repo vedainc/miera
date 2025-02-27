@@ -37,7 +37,7 @@
     pe "pulseeffects"
     sm "steam"
     syn "flatpak run --branch=master --arch=x86_64 com.symless.Synergy"
-    tx "termite"
+    ;;tx "termite"
     vbm "VBoxManage"
     vl "vlc -I ncurses"
     vl! "vl --random --loop --playlist-autostart"
