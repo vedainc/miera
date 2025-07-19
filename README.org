@@ -38,7 +38,7 @@ Next, clone the repository containing Miera:
 #+begin_src sh
 mkdir ~/common-lisp
 cd ~/common-lisp
-git clone https://github.com/krei-systems/miera
+git clone https://github.com/vedainc/miera
 #+end_src
 * Install the scripts themselves
 Once you've installed al the dependencies, you can install the scripts by running:
