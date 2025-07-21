@@ -1,14 +1,10 @@
 ;;;; -*- mode: lisp; syntax: common-lisp; base: 10 -*-
 ;;;; miera.asd --- main asdf file
 
-(uiop:define-package :miera-system
-  (:use #:cl #:asdf))
-
-(in-package #:miera-system)
-
 (defsystem :miera
     :name "miera"
-    :version "1.5.0"
+    :version (:read-file-form #P"version.lisp")
+    :description "A small collection of CLI programs"
     :author "Rommel Martínez <ebzzry@icloud.com>"
     :class :package-inferred-system
     :depends-on (#:cl-ppcre
