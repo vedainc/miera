@@ -202,6 +202,10 @@
   "Set the backlight level of HOST to VALUE."
   (run/i `("ssh" ,host ,(fmt "sudo light -S ~A -s sysfs/backlight/intel_backlight" value))))
 
+(defcommand dpms (host value)
+  "Set the dpms setting of HOST to VALUE."
+  (run/i `("ssh" ,host ,(fmt "DISPLAY=:0.0 xset dpms force ~A" value))))
+
 (defcommand resolution (mode)
   "Set the screen resolution to MODE."
   (run/i `("xrandr" "--output" "eDP-1" "--mode" ,mode)))
