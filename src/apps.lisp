@@ -185,9 +185,7 @@
 (defcommand p (&rest args)
   "run the media player."
   (flet ((cmd (args)
-           (uiop:os-cond
-            ((uiop:os-macosx-p) (run/i `("iina" "--mpv-mute" ,@args)))
-            (t (run/i `("mpv" "--mute" ,@args))))))
+           (run/i `("mpv" "--mute" ,@args))))
     (if (neg args)
         (cmd '("."))
         (cmd args))))
