@@ -72,7 +72,7 @@
          zm "zoom-us")
 
 (rc-qt5ct vp "vlc"
-          qb "qutebrowser"
+          ;; qb "qutebrowser"
           qt5 "qt5ct")
 
 (rc-wine fightcade "/pub/ludoj/emu/fightcade/FightCade.exe"
@@ -190,11 +190,29 @@
         (cmd '("."))
         (cmd args))))
 
+(defcommand qb (&rest args)
+  "Open Qutebrowser."
+  (let ((path (uiop:os-cond ((uiop:os-macosx-p)
+                             "/Applications/qutebrowser.app/Contents/MacOS/qutebrowser")
+                            (t "qutebrowser"))))
+    (run/i `(,path ,@args))))
+
+(defcommand sisku (&rest args)
+  "Open la lidysisku in Qutebrowser."
+  (let ((str "https://la-lojban.github.io/sutysisku/lojban/index.html#seskari=cnano&sisku=~A&bangu=en&versio=masno"))
+    (mapcar #'qb (mapcar (lambda (word) (fmt str word)) args))))
+
 (defcommand clhs (&rest args)
-  "Open the Common Lisp Hyperspec in the browser."
-  (run/i `(,(uiop:getenv "BROWSER")
-           (fmt "https://www.xach.com/clhs?q=~A" ,@args)))
-  (success))
+  "Open the Hyperspec in Qutebrowser."
+  (let ((str "https://www.xach.com/clhs?q=~A"))
+    (mapcar #'qb (mapcar (lambda (word) (fmt str word)) args))))
+
+(defcommand open-dired (directory)
+  "Open the current directory in Dired."
+  (let ((str "(my-dired-workspace \"~A\")"))
+    (run/i `("emacsclient" "--eval" ,(fmt str directory)))
+    (when (uiop:os-macosx-p)
+      (run/i '("open" "-a" "Emacs")))))
 
 (defcommand backlight (host value)
   "Set the backlight level of HOST to VALUE."
@@ -207,9 +225,5 @@
 (defcommand resolution (mode)
   "Set the screen resolution to MODE."
   (run/i `("xrandr" "--output" "eDP-1" "--mode" ,mode)))
-
-(defcommand sas (&rest args)
-  "Switch audio source."
-  (prin1 args))
 
 (register-commands :miera/src/apps)
